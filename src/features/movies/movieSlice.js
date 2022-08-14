@@ -4,17 +4,16 @@ import movieAPI from '../../common/API/movieAPI';
 import { APIKey } from '../../common/API/movieAPIKey';
 
 export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies',
-    async () => {
-        const hardMovie = 'Despicable Me';
-        const res = await movieAPI.get(`?apiKey=${APIKey}&s=${hardMovie}&type=movie`);
+    async (term) => {
+        const res = await movieAPI.get(`?apiKey=${APIKey}&s=${term}&type=movie`);
         return res.data;
     }
 );
 
+
 export const fetchAsyncShows = createAsyncThunk('movies/fetchAsyncShows',
-    async () => {
-        const hardShow = 'Avatar';
-        const res = await movieAPI.get(`?apiKey=${APIKey}&s=${hardShow}&type=series`);
+    async (term) => {
+        const res = await movieAPI.get(`?apiKey=${APIKey}&s=${term}&type=series`);
         return res.data;
     }
 );

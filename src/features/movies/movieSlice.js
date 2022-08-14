@@ -13,7 +13,7 @@ export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies',
 
 export const fetchAsyncShows = createAsyncThunk('movies/fetchAsyncShows',
     async () => {
-        const hardShow = 'Airbender';
+        const hardShow = 'Avatar';
         const res = await movieAPI.get(`?apiKey=${APIKey}&s=${hardShow}&type=series`);
         return res.data;
     }

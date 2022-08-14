@@ -11,8 +11,10 @@ const Header = () => {
     const dispatch = useDispatch();
     const submitHandler = e => {
         e.preventDefault();
-        dispatch(fetchAsyncMovies(term));
-        dispatch(fetchAsyncShows(term));
+        if (term !== '') {
+            dispatch(fetchAsyncMovies(term));
+            dispatch(fetchAsyncShows(term));
+        }
         setTerm('');
     }
     return (
